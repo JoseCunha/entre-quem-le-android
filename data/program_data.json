@@ -1,0 +1,573 @@
+{
+  "event": {
+    "edition": "3.ª Edição",
+    "title": "Entre Quem Lê",
+    "subtitle": "Encontro Literário & Feira do Livro de Vila Real 2026",
+    "dates": {
+      "start": "2026-09-18",
+      "end": "2026-09-26"
+    },
+    "location": {
+      "name": "Claustros do Palácio do Conde de Amarante (antigo Governo Civil)",
+      "address": "Avenida Carvalho Araújo / Rua Dr. Cândido Sotto Mayor",
+      "city": "Vila Real",
+      "region": "Trás-os-Montes e Alto Douro",
+      "country": "Portugal",
+      "coordinates": {
+        "latitude": 41.2965,
+        "longitude": -7.7445
+      }
+    },
+    "organizer": "Câmara Municipal de Vila Real",
+    "co_organizer": "Teatro de Vila Real",
+    "partners": [
+      "Feira do Livro de Vila Real",
+      "Projeto Nortear (Galiza-Norte de Portugal)",
+      "Granada Cidade Criativa da Literatura UNESCO"
+    ]
+  },
+  "categories": [
+    {
+      "id": "conversas",
+      "name": "Conversas & Debates",
+      "icon": "forum",
+      "color": "#8C3827"
+    },
+    {
+      "id": "livros",
+      "name": "Apresentação de Livros",
+      "icon": "menu_book",
+      "color": "#D9822B"
+    },
+    {
+      "id": "infantil",
+      "name": "Infantil & Oficinas",
+      "icon": "child_care",
+      "color": "#4A6746"
+    },
+    {
+      "id": "poesia",
+      "name": "Poesia & Recitais",
+      "icon": "auto_stories",
+      "color": "#633B48"
+    },
+    {
+      "id": "musica",
+      "name": "Música & Espetáculos",
+      "icon": "music_note",
+      "color": "#205FA6"
+    },
+    {
+      "id": "formacao",
+      "name": "Cursos & Formação",
+      "icon": "school",
+      "color": "#7D5260"
+    }
+  ],
+  "sessions": [
+    {
+      "id": "sess-20260918-1800",
+      "date": "2026-09-18",
+      "time": "18:00",
+      "title": "Inauguração da 3.ª Edição do Encontro Literário \"Entre Quem Lê\"",
+      "category_id": "conversas",
+      "promoter": "Câmara Municipal de Vila Real / Teatro de Vila Real",
+      "target_audience": "Geral",
+      "description": "Sessão solene de abertura da 3.ª edição do encontro literário 'Entre Quem Lê' e inauguração da Feira do Livro nos Claustros do emblemático Palácio do Conde de Amarante.",
+      "speakers": [
+        {
+          "name": "Executivo Municipal e Curadoria",
+          "role": "Representantes Oficiais",
+          "bio": "Abertura oficial do evento literário de referência da cidade de Vila Real."
+        }
+      ]
+    },
+    {
+      "id": "sess-20260918-1900",
+      "date": "2026-09-18",
+      "time": "19:00",
+      "title": "Dimensão Ibérica: Granada Cidade Criativa da Literatura",
+      "category_id": "conversas",
+      "promoter": "Teatro de Vila Real / UNESCO",
+      "target_audience": "Geral",
+      "description": "Apresentação da cooperação literária ibérica e diálogo com Jesús Ortega, coordenador do programa Granada Cidade Criativa da Literatura pela UNESCO.",
+      "speakers": [
+        {
+          "name": "Jesús Ortega",
+          "role": "Escritor e Coordenador UNESCO",
+          "bio": "Escritor espanhol e coordenador do prestigiado programa Granada Cidade Criativa da Literatura da UNESCO, impulsionador das pontes culturais e literárias ibéricas."
+        }
+      ]
+    },
+    {
+      "id": "sess-20260918-2130",
+      "date": "2026-09-18",
+      "time": "21:30",
+      "title": "Recital Inaugural: \"Ler Devia Ser Proibido\"",
+      "category_id": "poesia",
+      "promoter": "Entre Quem Lê / Teatro de Vila Real",
+      "target_audience": "Geral",
+      "description": "Espetáculo poético e performativo que celebra a transgressão, a beleza e a liberdade do ato de ler no espaço intimista dos claustros.",
+      "speakers": [
+        {
+          "name": "Elenco Performativo",
+          "role": "Intérpretes",
+          "bio": "Coletivo de artistas e declamadores convidados para a noite inaugural."
+        }
+      ]
+    },
+    {
+      "id": "sess-20260919-1500",
+      "date": "2026-09-19",
+      "time": "15:00",
+      "title": "Oficina: \"Lugares de Leitura\", com Paula Cusati",
+      "category_id": "infantil",
+      "promoter": "Serviço Educativo / Feira do Livro",
+      "target_audience": "Crianças e Famílias (6 aos 12 anos)",
+      "description": "Oficina de exploração sensorial, leitura partilhada e ilustração onde os participantes constroem os seus próprios mapas imaginários de leitura.",
+      "speakers": [
+        {
+          "name": "Paula Cusati",
+          "role": "Mediadora e Formadora",
+          "bio": "Especialista em mediação da leitura e dinamizadora de projetos educativos em torno do livro e da infância."
+        }
+      ]
+    },
+    {
+      "id": "sess-20260919-1700",
+      "date": "2026-09-19",
+      "time": "17:00",
+      "title": "Conversa Literária com José Gardeazabal",
+      "category_id": "conversas",
+      "promoter": "Entre Quem Lê",
+      "target_audience": "Geral",
+      "description": "Encontro literário sobre a ficção inovadora, o romance contemporâneo e a poesia com um dos mais aclamados autores portugueses da nova geração.",
+      "speakers": [
+        {
+          "name": "José Gardeazabal",
+          "role": "Escritor Convidado",
+          "bio": "Vencedor do Prémio INCM/Vasco Graça Moura com a obra de poesia 'História do Século Vinte'. Autor dos aclamados romances 'Meio Homem Metade Baleia', 'A Melancolia dos Pássaros' e 'Quarentena'."
+        }
+      ]
+    },
+    {
+      "id": "sess-20260919-1830",
+      "date": "2026-09-19",
+      "time": "18:30",
+      "title": "Sessão Destaque: Rui Reininho e o livro \"Soñetos\"",
+      "category_id": "conversas",
+      "promoter": "Entre Quem Lê / Feira do Livro",
+      "target_audience": "Geral",
+      "description": "Conversa imperdível com o carismático músico e escritor Rui Reininho em torno do seu livro 'Soñetos', reunindo poemas, letras, devaneios literários e reflexões sobre a palavra cantada e escrita.",
+      "speakers": [
+        {
+          "name": "Rui Reininho",
+          "role": "Músico e Escritor",
+          "bio": "Vocalista e letrista dos míticos GNR, figura ímpar da cultura portuguesa contemporânea, letrista refinado e autor da obra poética 'Soñetos'."
+        }
+      ]
+    },
+    {
+      "id": "sess-20260919-2130",
+      "date": "2026-09-19",
+      "time": "21:30",
+      "title": "Conversa com Rui Cardoso Martins: Crónica, Narrativa e Humor",
+      "category_id": "conversas",
+      "promoter": "Entre Quem Lê",
+      "target_audience": "Geral",
+      "description": "Sessão em torno do jornalismo, da crônica de costumes e do romance em Portugal com o multipremiado autor e guionista.",
+      "speakers": [
+        {
+          "name": "Rui Cardoso Martins",
+          "role": "Escritor e Guionista",
+          "bio": "Autor de romances consagrados como 'E Se Eu Gostasse Muito de Morrer', 'Deixem Passar o Homem Invisível' (Grande Prémio da APE) e 'O Osso da Borboleta'. Cofundador das Produções Fictícias."
+        }
+      ]
+    },
+    {
+      "id": "sess-20260920-1530",
+      "date": "2026-09-20",
+      "time": "15:30",
+      "title": "Hora do Conto & Expressão Criativa",
+      "category_id": "infantil",
+      "promoter": "Serviço Educativo",
+      "target_audience": "Infantil / Famílias",
+      "description": "Sessão lúdica de contos para famílias nos claustros ajardinados do palácio.",
+      "speakers": [
+        {
+          "name": "Animadores Culturais",
+          "role": "Contadores de Histórias",
+          "bio": "Equipa de dinamização do Serviço Educativo de Vila Real."
+        }
+      ]
+    },
+    {
+      "id": "sess-20260920-1700",
+      "date": "2026-09-20",
+      "time": "17:00",
+      "title": "Diálogos do Norte: Conversa com Rui Lage",
+      "category_id": "conversas",
+      "promoter": "Entre Quem Lê",
+      "target_audience": "Geral",
+      "description": "Reflexão sobre a literatura transmontana, memória e poesia na obra do consagrado escritor e deputado transmontano.",
+      "speakers": [
+        {
+          "name": "Rui Lage",
+          "role": "Escritor e Poeta",
+          "bio": "Doutorado em Literatura, romancista e poeta premiado com o Prémio Literário Fundação Inês de Castro e Prémio Literário Ruy Belo. Autor de 'O Invisível' e 'Estrada Nacional'."
+        }
+      ]
+    },
+    {
+      "id": "sess-20260920-1830",
+      "date": "2026-09-20",
+      "time": "18:30",
+      "title": "Aventuras da Língua Portuguesa com Marco Neves",
+      "category_id": "conversas",
+      "promoter": "Entre Quem Lê",
+      "target_audience": "Geral",
+      "description": "Uma viagem divertida e fascinante pelos mistérios, origens, regionalismos e curiosidades da língua portuguesa com o professor e linguista Marco Neves.",
+      "speakers": [
+        {
+          "name": "Marco Neves",
+          "role": "Linguista e Escritor",
+          "bio": "Professor universitário na FCSH, tradutor e prolífico autor de livros de divulgação linguística como 'Assim ou Assado', 'Dicionário de Erros Falsos da Língua Portuguesa' e 'História do Português desde as Origens'."
+        }
+      ]
+    },
+    {
+      "id": "sess-20260920-2130",
+      "date": "2026-09-20",
+      "time": "21:30",
+      "title": "Recital: \"Canções para Poetas\"",
+      "category_id": "musica",
+      "promoter": "Teatro de Vila Real",
+      "target_audience": "Geral",
+      "description": "Concerto acústico e recital poético musicando versos fundamentais da lírica portuguesa nos claustros do palácio.",
+      "speakers": [
+        {
+          "name": "Músicos Convidados",
+          "role": "Intérpretes",
+          "bio": "Composição musical e interpretação poética ao vivo."
+        }
+      ]
+    },
+    {
+      "id": "sess-20260921-1030",
+      "date": "2026-09-21",
+      "time": "10:30",
+      "title": "Entre Quem Lê nas Escolas: Encontro com Escritores",
+      "category_id": "infantil",
+      "promoter": "Câmara Municipal / Escolas de Vila Real",
+      "target_audience": "Alunos do 1.º e 2.º Ciclo",
+      "description": "Sessão dedicada de aproximação entre autores contemporâneos e turmas escolares do concelho.",
+      "speakers": [
+        {
+          "name": "Autores Convidados",
+          "role": "Escritores",
+          "bio": "Sessão com turmas escolares da rede pública de Vila Real."
+        }
+      ]
+    },
+    {
+      "id": "sess-20260921-1830",
+      "date": "2026-09-21",
+      "time": "18:30",
+      "title": "Conversa com Inês Bernardo: Memória e Novas Narrativas",
+      "category_id": "conversas",
+      "promoter": "Entre Quem Lê",
+      "target_audience": "Geral",
+      "description": "Diálogo sobre os novos rumos da prosa portuguesa, construção de personagens femininas e representação cultural.",
+      "speakers": [
+        {
+          "name": "Inês Bernardo",
+          "role": "Escritora Convidada",
+          "bio": "Escritora destacada da nova prosa portuguesa, com trabalho focado na narrativa contemporânea."
+        }
+      ]
+    },
+    {
+      "id": "sess-20260921-2100",
+      "date": "2026-09-21",
+      "time": "21:00",
+      "title": "A Voz e a Palavra: Recital com André Gago",
+      "category_id": "poesia",
+      "promoter": "Entre Quem Lê",
+      "target_audience": "Geral",
+      "description": "Recital e partilha do consagrado ator e escritor André Gago em torno da corporalidade do texto e da leitura em público.",
+      "speakers": [
+        {
+          "name": "André Gago",
+          "role": "Ator e Escritor",
+          "bio": "Ator, escritor, encenador e tradutor. Autor de romance ('Rio Homem') e dinamizador de recitais poéticos em Portugal."
+        }
+      ]
+    },
+    {
+      "id": "sess-20260922-1500",
+      "date": "2026-09-22",
+      "time": "15:00",
+      "title": "Oficina Escolar de Leitura Expressiva",
+      "category_id": "infantil",
+      "promoter": "Serviço Educativo",
+      "target_audience": "Alunos do 3.º ciclo e secundário",
+      "description": "Oficina prática com técnicas de expressão vocal e leitura teatralizada de excertos literários.",
+      "speakers": [
+        {
+          "name": "Formadores do Teatro de Vila Real",
+          "role": "Formadores",
+          "bio": "Equipa de mediação cultural do Teatro de Vila Real."
+        }
+      ]
+    },
+    {
+      "id": "sess-20260922-1830",
+      "date": "2026-09-22",
+      "time": "18:30",
+      "title": "Conversa com Ricardo Alexandre: A Realidade e a Escrita",
+      "category_id": "conversas",
+      "promoter": "Entre Quem Lê",
+      "target_audience": "Geral",
+      "description": "Encontro com o conceituado jornalista internacional Ricardo Alexandre, abordando a fronteira entre a reportagem no terreno, geopolítica e literatura de não-ficção.",
+      "speakers": [
+        {
+          "name": "Ricardo Alexandre",
+          "role": "Jornalista e Escritor",
+          "bio": "Jornalista da TSF/RTP, autor e especialista em relações internacionais com vasta experiência de cobertura de conflitos armados e processos eleitorais globais."
+        }
+      ]
+    },
+    {
+      "id": "sess-20260922-2100",
+      "date": "2026-09-22",
+      "time": "21:00",
+      "title": "Pensar o Futuro: Conversa com Jorge Pinto",
+      "category_id": "conversas",
+      "promoter": "Entre Quem Lê",
+      "target_audience": "Geral",
+      "description": "Diálogo sobre ecologia, transição societária e pensamento político no séc. XXI em torno dos ensaios de Jorge Pinto.",
+      "speakers": [
+        {
+          "name": "Jorge Pinto",
+          "role": "Escritor e Ensaísta",
+          "bio": "Doutorado em Filosofia Social e Política, autor e ensaísta sobre sustentabilidade, rendimento básico e cidadania ('A Liberdade dos Futuros')."
+        }
+      ]
+    },
+    {
+      "id": "sess-20260923-1500",
+      "date": "2026-09-23",
+      "time": "15:00",
+      "title": "Roteiro dos Livros nos Claustros: Visitas Guiadas",
+      "category_id": "infantil",
+      "promoter": "Feira do Livro",
+      "target_audience": "Público Escolar e Geral",
+      "description": "Visita guiada ao património histórico dos claustros e às bancas da Feira do Livro.",
+      "speakers": []
+    },
+    {
+      "id": "sess-20260923-1830",
+      "date": "2026-09-23",
+      "time": "18:30",
+      "title": "Conversa com Luís Paixão Martins: Poder, Narrativa e Opinião",
+      "category_id": "conversas",
+      "promoter": "Entre Quem Lê",
+      "target_audience": "Geral",
+      "description": "Análise contundente e bem-humorada sobre os bastidores da comunicação e campanhas políticas em Portugal com o consultor Luís Paixão Martins.",
+      "speakers": [
+        {
+          "name": "Luís Paixão Martins",
+          "role": "Consultor e Autor",
+          "bio": "Consultor de comunicação de referência, autor do bestseller 'Como Perder Uma Eleição' e veterano da imprensa e assessoria política."
+        }
+      ]
+    },
+    {
+      "id": "sess-20260923-2100",
+      "date": "2026-09-23",
+      "time": "21:00",
+      "title": "Noite de Poesia Transmontana",
+      "category_id": "poesia",
+      "promoter": "Entre Quem Lê",
+      "target_audience": "Geral",
+      "description": "Leitura de poetas de Trás-os-Montes e Douro, celebrando Miguel Torga, Pires Cabral e novas vozes da região.",
+      "speakers": [
+        {
+          "name": "Autores e Declamadores da Região",
+          "role": "Leitores Convidados",
+          "bio": "Vozes representativas da criação literária regional."
+        }
+      ]
+    },
+    {
+      "id": "sess-20260924-1500",
+      "date": "2026-09-24",
+      "time": "15:00",
+      "title": "Oficina Juvenil de Ilustração e Banda Desenhada",
+      "category_id": "infantil",
+      "promoter": "Serviço Educativo",
+      "target_audience": "Jovens dos 10 aos 16 anos",
+      "description": "Sessão prática de criação de tiras cómicas e romance gráfico inspiradas em lendas de Vila Real.",
+      "speakers": [
+        {
+          "name": "Ilustrador Convidado",
+          "role": "Formador",
+          "bio": "Profissional de artes visuais e ilustração editorial."
+        }
+      ]
+    },
+    {
+      "id": "sess-20260924-1830",
+      "date": "2026-09-24",
+      "time": "18:30",
+      "title": "Conversas Nortear: Encontro com a escritora galega María Canosa",
+      "category_id": "conversas",
+      "promoter": "Projeto Nortear (Galiza-Norte de Portugal)",
+      "target_audience": "Geral",
+      "description": "Sessão no âmbito da cooperação transfronteiriça Nortear com a prestigiada escritora e comunicadora galega María Canosa, debatendo laços literários entre o Norte de Portugal e a Galiza.",
+      "speakers": [
+        {
+          "name": "María Canosa",
+          "role": "Escritora Convidada (Galiza)",
+          "bio": "Escritora e engenheira galega com mais de 30 livros publicados na ficção infantil, juvenil e adulta, premiada e presença habitual na Televisión de Galicia."
+        }
+      ]
+    },
+    {
+      "id": "sess-20260924-2100",
+      "date": "2026-09-24",
+      "time": "21:00",
+      "title": "Mesa-Redonda: A Descentralização Editorial e a Escrita no Interior",
+      "category_id": "conversas",
+      "promoter": "Entre Quem Lê",
+      "target_audience": "Geral",
+      "description": "Debate com editores e autores sobre os desafios da publicação de livros fora de Lisboa e Porto.",
+      "speakers": [
+        {
+          "name": "Editores e Autores Convidados",
+          "role": "Painelistas",
+          "bio": "Representantes de editoras independentes e autores transmontanos."
+        }
+      ]
+    },
+    {
+      "id": "sess-20260925-1500",
+      "date": "2026-09-25",
+      "time": "15:00",
+      "title": "Curso de Escrita Criativa com Rui Zink",
+      "category_id": "formacao",
+      "promoter": "Entre Quem Lê / Teatro de Vila Real",
+      "target_audience": "Inscritos (Jovens e Adultos)",
+      "description": "Formação intensiva em escrita criativa ministrada pelo professor e romancista Rui Zink, partilhando métodos, desconstrução de clichês e arquitetura de histórias.",
+      "speakers": [
+        {
+          "name": "Rui Zink",
+          "role": "Professor e Escritor",
+          "bio": "Romancista, ensaísta, dramaturgo e professor associado na Faculdade de Ciências Sociais e Humanas da Universidade Nova de Lisboa. Prémio do PEN Clube Português."
+        }
+      ]
+    },
+    {
+      "id": "sess-20260925-1830",
+      "date": "2026-09-25",
+      "time": "18:30",
+      "title": "Apresentação do romance \"Olga salva o mundo\", de Rui Zink",
+      "category_id": "livros",
+      "promoter": "Entre Quem Lê / Feira do Livro",
+      "target_audience": "Geral",
+      "description": "Lançamento e apresentação do mais recente romance de Rui Zink, 'Olga salva o mundo', repleto de sarcasmo, perspicácia social e reflexão sobre a atualidade.",
+      "speakers": [
+        {
+          "name": "Rui Zink",
+          "role": "Autor",
+          "bio": "Autor prolífico de obras emblemáticas como 'A Instalação do Medo', 'Os Surfistas' e 'Manual do Bom Fascista'."
+        }
+      ]
+    },
+    {
+      "id": "sess-20260925-2130",
+      "date": "2026-09-25",
+      "time": "21:30",
+      "title": "Destaque Internacional: Conversa com David Uclés (Espanha)",
+      "category_id": "conversas",
+      "promoter": "Entre Quem Lê",
+      "target_audience": "Geral",
+      "description": "Sessão literária de grande destaque internacional com a nova voz de ouro da literatura espanhola, autor do arrebatador romance 'La península de las casas vacías'.",
+      "speakers": [
+        {
+          "name": "David Uclés",
+          "role": "Escritor Convidado (Espanha)",
+          "bio": "Escritor, músico e artista plástico andaluz, autor da aclamada obra épica 'La península de las casas vacías' (Prémio Cálamo, romance do ano em Espanha), comparada pelas críticas ao realismo mágico de García Márquez."
+        }
+      ]
+    },
+    {
+      "id": "sess-20260926-1530",
+      "date": "2026-09-26",
+      "time": "15:30",
+      "title": "Oficina Final: O Mural Coletivo das Leituras 2026",
+      "category_id": "infantil",
+      "promoter": "Serviço Educativo",
+      "target_audience": "Infantil e Famílias",
+      "description": "Encerramento das atividades pedagógicas infantis com a composição coletiva do mural dos livros favoritos da 3.ª edição.",
+      "speakers": [
+        {
+          "name": "Dinamizadores do Serviço Educativo",
+          "role": "Formadores",
+          "bio": "Mediadores pedagógicos municipais."
+        }
+      ]
+    },
+    {
+      "id": "sess-20260926-1700",
+      "date": "2026-09-26",
+      "time": "17:00",
+      "title": "Sessão Especial: Leituras de António Lobo Antunes",
+      "category_id": "poesia",
+      "promoter": "Entre Quem Lê",
+      "target_audience": "Geral",
+      "description": "Homenagem literária ao monumento da prosa em língua portuguesa António Lobo Antunes, através de leituras de excertos capitais das suas crónicas e romances.",
+      "speakers": [
+        {
+          "name": "Atores e Convidados Especiais",
+          "role": "Leitores",
+          "bio": "Intérpretes convidados da 3.ª edição."
+        }
+      ]
+    },
+    {
+      "id": "sess-20260926-1830",
+      "date": "2026-09-26",
+      "time": "18:30",
+      "title": "Mesa de Balanço e Encerramento Literário",
+      "category_id": "conversas",
+      "promoter": "Câmara Municipal de Vila Real / Teatro de Vila Real",
+      "target_audience": "Geral",
+      "description": "Balanço público dos 9 dias de festival com autores, livreiros, organizadores e comunidade leitora.",
+      "speakers": [
+        {
+          "name": "Curadoria e Convidados",
+          "role": "Painel",
+          "bio": "Encerramento das conversas literárias da 3.ª edição."
+        }
+      ]
+    },
+    {
+      "id": "sess-20260926-2130",
+      "date": "2026-09-26",
+      "time": "21:30",
+      "title": "Espetáculo de Encerramento da 3.ª Edição",
+      "category_id": "musica",
+      "promoter": "Teatro de Vila Real",
+      "target_audience": "Geral",
+      "description": "Concerto musical de celebração e encerramento festivo da Feira do Livro e Encontro Literário 'Entre Quem Lê' 2026.",
+      "speakers": [
+        {
+          "name": "Banda Convidada",
+          "role": "Músicos",
+          "bio": "Espetáculo de encerramento nos claustros do Palácio do Conde de Amarante."
+        }
+      ]
+    }
+  ]
+}
