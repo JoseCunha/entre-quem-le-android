@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import pt.cmvilareal.entrequemle.data.ProgramData
 import pt.cmvilareal.entrequemle.data.ProgramRepository
@@ -123,14 +124,25 @@ fun MainApp(programData: ProgramData) {
                             color = MaterialTheme.colorScheme.primary
                         )
                         Text(
-                            text = "Promotor: ${session.promoter}",
-                            style = MaterialTheme.typography.bodySmall
+                            text = "Local: ${session.venue}",
+                            style = MaterialTheme.typography.bodySmall,
+                            fontWeight = FontWeight.Medium
                         )
-                        if (session.targetAudience != "Geral") {
+                        if (session.requiresRegistration) {
                             Text(
-                                text = "Público: ${session.targetAudience}",
-                                style = MaterialTheme.typography.bodySmall
+                                text = "Requer inscrição prévia: entrequemle@cm-vilareal.pt",
+                                style = MaterialTheme.typography.bodySmall,
+                                fontWeight = FontWeight.Bold,
+                                color = MaterialTheme.colorScheme.error
                             )
+                        }
+                        session.targetAudience?.let { audience ->
+                            if (audience != "Geral") {
+                                Text(
+                                    text = "Público: $audience",
+                                    style = MaterialTheme.typography.bodySmall
+                                )
+                            }
                         }
                         session.moderator?.let {
                             Text(

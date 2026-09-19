@@ -10,6 +10,7 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import pt.cmvilareal.entrequemle.model.Screen
@@ -35,7 +36,8 @@ fun ScheduleScreen(
             sessions.filter { session ->
                 session.title.contains(searchQuery, ignoreCase = true) ||
                     session.description.contains(searchQuery, ignoreCase = true) ||
-                    session.promoter.contains(searchQuery, ignoreCase = true) ||
+                    session.venue.contains(searchQuery, ignoreCase = true) ||
+                    session.category.label.contains(searchQuery, ignoreCase = true) ||
                     session.moderator?.contains(searchQuery, ignoreCase = true) == true ||
                     session.speakers.any { it.name.contains(searchQuery, ignoreCase = true) }
             }
@@ -49,40 +51,44 @@ fun ScheduleScreen(
                     Text(
                         text = "Programa Completo",
                         style = MaterialTheme.typography.titleLarge,
-                        fontWeight = FontWeight.Bold
+                        fontWeight = FontWeight.Bold,
+                        color = Color.White
                     )
                 },
                 colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = MaterialTheme.colorScheme.surface
+                    containerColor = Color(0xFF0D2E50),
+                    titleContentColor = Color.White
                 )
             )
         },
         bottomBar = {
-            NavigationBar(containerColor = MaterialTheme.colorScheme.surface) {
-                NavigationBarItem(
-                    selected = currentScreen == Screen.Home,
-                    onClick = { onNavigate(Screen.Home) },
-                    icon = { Icon(Icons.Default.Today, contentDescription = null) },
-                    label = { Text("Hoje") }
+            NavigationBar(
+                containerColor = Color(0xFF0D2E50),
+                contentColor = Color.White
+            ) {
+                val navItems = listOf(
+                    Triple(Screen.Home, "Hoje", Icons.Default.Today),
+                    Triple(Screen.Schedule, "Programa", Icons.Default.Event),
+                    Triple(Screen.Authors, "Autores", Icons.Default.People),
+                    Triple(Screen.Bookmarks, "Agenda", Icons.Default.Bookmark),
+                    Triple(Screen.Info, "Info", Icons.Default.Info)
                 )
-                NavigationBarItem(
-                    selected = currentScreen == Screen.Schedule,
-                    onClick = { onNavigate(Screen.Schedule) },
-                    icon = { Icon(Icons.Default.Event, contentDescription = null) },
-                    label = { Text("Programa") }
-                )
-                NavigationBarItem(
-                    selected = currentScreen == Screen.Authors,
-                    onClick = { onNavigate(Screen.Authors) },
-                    icon = { Icon(Icons.Default.People, contentDescription = null) },
-                    label = { Text("Autores") }
-                )
-                NavigationBarItem(
-                    selected = currentScreen == Screen.Bookmarks,
-                    onClick = { onNavigate(Screen.Bookmarks) },
-                    icon = { Icon(Icons.Default.Bookmark, contentDescription = null) },
-                    label = { Text("Agenda") }
-                )
+
+                navItems.forEach { (screen, label, icon) ->
+                    NavigationBarItem(
+                        selected = currentScreen == screen,
+                        onClick = { onNavigate(screen) },
+                        icon = { Icon(icon, contentDescription = null) },
+                        label = { Text(label) },
+                        colors = NavigationBarItemDefaults.colors(
+                            selectedIconColor = Color(0xFF0D2E50),
+                            selectedTextColor = Color(0xFFE4EF00),
+                            indicatorColor = Color(0xFFE4EF00),
+                            unselectedIconColor = Color.White.copy(alpha = 0.7f),
+                            unselectedTextColor = Color.White.copy(alpha = 0.7f)
+                        )
+                    )
+                }
             }
         }
     ) { innerPadding ->
@@ -97,7 +103,7 @@ fun ScheduleScreen(
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(horizontal = 16.dp, vertical = 8.dp),
-                placeholder = { Text("Pesquisar por livro, autor ou tema...") },
+                placeholder = { Text("Pesquisar por livro, autor, local ou tema...") },
                 leadingIcon = { Icon(Icons.Outlined.Search, contentDescription = null) },
                 singleLine = true
             )

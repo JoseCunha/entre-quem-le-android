@@ -15,6 +15,7 @@ val MdLightPrimaryContainer = Color(0xFFD4E3F7)
 val MdLightOnPrimaryContainer = Color(0xFF001C3B)
 
 val MdLightSecondary = Color(0xFF6B7400)          // Amarelo Limão ajustado para contraste acessível (>4.5:1)
+val MdLightOnSecondary = Color(0xFFFFFFFF)
 val MdLightSecondaryContainer = Color(0xFFEBF785) // Amarelo Limão vibrante da capa
 val MdLightOnSecondaryContainer = Color(0xFF1E2200)
 

@@ -1,5 +1,6 @@
 package pt.cmvilareal.entrequemle.ui.components
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -10,7 +11,6 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.semantics.contentDescription
@@ -19,16 +19,18 @@ import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import pt.cmvilareal.entrequemle.model.Session
 
 /**
- * Cartão de Sessão do Evento - Desenhado segundo WCAG 2.2 e Material Design 3.
+ * Cartão de Sessão do Evento - Look & Feel Oficial da Brochura 2026.
  *
- * Acessibilidade:
- * - Touch target mínimo de 48x48dp no botão de favoritos (WCAG 2.5.5 / 2.5.8).
- * - Semântica TalkBack explícita para o botão de ação e para o cartão completo.
- * - Rácio de contraste superior a 4.5:1 em todos os pares texto/fundo.
- * - Suporte a expansão dinâmica de tipografia (Dynamic Type / Font Scale).
+ * Características Visuais:
+ * - Badges temáticas com as cores oficiais (Conversa em Ouro, Livro em Laranja, Recital em Carvão, etc.).
+ * - Títulos fortes em Azul Noturno Oficial (#0D2E50).
+ * - Subtítulos e oradores em Azul Cerúleo (#1D5FA7).
+ * - Sinalização de "Requer inscrição" e locais especiais (Oficina das Artes / Vila Velha).
+ * - Acessibilidade WCAG 2.2: Touch target 48x48dp, contraste elevado e semântica TalkBack.
  */
 @Composable
 fun SessionCard(
@@ -43,20 +45,21 @@ fun SessionCard(
             .fillMaxWidth()
             .clickable(
                 onClick = { onClick(session) },
-                onClickLabel = "Ver detalhes da sessão ${session.title}"
+                onClickLabel = "Ver detalhes de ${session.title}"
             ),
-        shape = RoundedCornerShape(16.dp),
+        shape = RoundedCornerShape(12.dp),
         colors = CardDefaults.cardColors(
-            containerColor = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.5f)
+            containerColor = MaterialTheme.colorScheme.surface
         ),
-        elevation = CardDefaults.cardElevation(defaultElevation = 1.dp)
+        border = BorderStroke(1.dp, MaterialTheme.colorScheme.outline.copy(alpha = 0.4f)),
+        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
     ) {
         Column(
             modifier = Modifier
                 .padding(16.dp)
                 .fillMaxWidth()
         ) {
-            // Linha superior: Hora, Categoria, Promotor e Botão Favorito
+            // Linha superior: Hora, Categoria da Brochura, Alertas e Favorito
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceBetween,
@@ -64,61 +67,60 @@ fun SessionCard(
             ) {
                 Row(
                     verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.spacedBy(8.dp)
+                    horizontalArrangement = Arrangement.spacedBy(8.dp),
+                    modifier = Modifier.weight(1f, fill = false)
                 ) {
-                    // Badge de Horário
+                    // Badge de Horário (Azul Noturno com texto branco)
                     Surface(
-                        shape = RoundedCornerShape(8.dp),
-                        color = MaterialTheme.colorScheme.primaryContainer,
-                        modifier = Modifier.defaultMinSize(minWidth = 54.dp)
+                        shape = RoundedCornerShape(6.dp),
+                        color = MaterialTheme.colorScheme.primary,
+                        modifier = Modifier.defaultMinSize(minWidth = 50.dp)
                     ) {
                         Text(
                             text = session.time,
                             style = MaterialTheme.typography.labelLarge,
                             fontWeight = FontWeight.Bold,
-                            color = MaterialTheme.colorScheme.onPrimaryContainer,
-                            modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp)
+                            color = MaterialTheme.colorScheme.onPrimary,
+                            modifier = Modifier.padding(horizontal = 8.dp, vertical = 3.dp)
                         )
                     }
 
-                    // Categoria
+                    // Badge de Categoria Oficial (Cores fiéis à p. 2 da brochura)
                     Surface(
-                        shape = RoundedCornerShape(8.dp),
-                        color = MaterialTheme.colorScheme.secondaryContainer
+                        shape = RoundedCornerShape(6.dp),
+                        color = Color(session.category.colorHex)
                     ) {
                         Text(
                             text = session.category.label,
                             style = MaterialTheme.typography.labelSmall,
-                            fontWeight = FontWeight.Medium,
-                            color = MaterialTheme.colorScheme.onSecondaryContainer,
-                            modifier = Modifier.padding(horizontal = 6.dp, vertical = 4.dp)
+                            fontWeight = FontWeight.Bold,
+                            color = Color(session.category.textHex),
+                            modifier = Modifier.padding(horizontal = 8.dp, vertical = 3.dp)
                         )
                     }
 
-                    // Promotor especial (ex: FNAC, Cultura a Dentro)
-                    if (session.promoter.contains("FNAC", ignoreCase = true) ||
-                        session.promoter.contains("Cultura a Dentro", ignoreCase = true)
-                    ) {
+                    // Tag de Inscrição Obrigatória
+                    if (session.requiresRegistration) {
                         Surface(
-                            shape = RoundedCornerShape(8.dp),
-                            color = MaterialTheme.colorScheme.tertiaryContainer
+                            shape = RoundedCornerShape(6.dp),
+                            color = MaterialTheme.colorScheme.errorContainer
                         ) {
                             Text(
-                                text = session.promoter,
+                                text = "Requer inscrição",
                                 style = MaterialTheme.typography.labelSmall,
-                                fontWeight = FontWeight.SemiBold,
-                                color = MaterialTheme.colorScheme.onTertiaryContainer,
-                                modifier = Modifier.padding(horizontal = 6.dp, vertical = 4.dp)
+                                fontWeight = FontWeight.Bold,
+                                color = MaterialTheme.colorScheme.onErrorContainer,
+                                modifier = Modifier.padding(horizontal = 6.dp, vertical = 3.dp)
                             )
                         }
                     }
                 }
 
-                // Botão de Favorito acessível (min 48x48dp touch target)
+                // Botão de Favorito acessível (min 48x48dp)
                 val bookmarkDesc = if (isBookmarked) {
-                    "Remover ${session.title} da minha agenda de favoritos"
+                    "Remover ${session.title} dos favoritos da minha agenda"
                 } else {
-                    "Guardar ${session.title} na minha agenda de favoritos"
+                    "Guardar ${session.title} nos favoritos da minha agenda"
                 }
 
                 IconButton(
@@ -133,35 +135,41 @@ fun SessionCard(
                     Icon(
                         imageVector = if (isBookmarked) Icons.Filled.Bookmark else Icons.Outlined.BookmarkBorder,
                         contentDescription = null,
-                        tint = if (isBookmarked) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurfaceVariant
+                        tint = if (isBookmarked) Color(0xFFF5BA13) else MaterialTheme.colorScheme.primary
                     )
                 }
             }
 
             Spacer(modifier = Modifier.height(10.dp))
 
-            // Título da Sessão (Serif literário)
+            // Título Principal em Azul Noturno
             Text(
                 text = session.title,
                 style = MaterialTheme.typography.titleLarge,
-                fontWeight = FontWeight.Bold,
-                color = MaterialTheme.colorScheme.onSurface,
+                color = MaterialTheme.colorScheme.primary,
                 maxLines = 2,
                 overflow = TextOverflow.Ellipsis
             )
 
-            // Público-alvo (se específico, ex: crianças ou turmas)
-            if (session.targetAudience != "Geral") {
+            // Oradores e Moderação em Azul Cerúleo
+            val participants = buildList {
+                addAll(session.speakers.map { it.name })
+                session.moderator?.let { add("Moderação: $it") }
+            }.joinToString(" • ")
+
+            if (participants.isNotBlank()) {
                 Spacer(modifier = Modifier.height(4.dp))
                 Text(
-                    text = "Público: ${session.targetAudience}",
-                    style = MaterialTheme.typography.labelSmall,
-                    color = MaterialTheme.colorScheme.secondary,
-                    fontWeight = FontWeight.SemiBold
+                    text = participants,
+                    style = MaterialTheme.typography.titleMedium,
+                    fontWeight = FontWeight.SemiBold,
+                    color = MaterialTheme.colorScheme.tertiary,
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis
                 )
             }
 
-            // Descrição sumária
+            // Descrição e Localização Específica
             if (session.description.isNotBlank()) {
                 Spacer(modifier = Modifier.height(6.dp))
                 Text(
@@ -173,21 +181,14 @@ fun SessionCard(
                 )
             }
 
-            // Oradores / Intervenientes
-            if (session.speakers.isNotEmpty() || session.moderator != null) {
-                Spacer(modifier = Modifier.height(8.dp))
-                val participants = buildList {
-                    addAll(session.speakers.map { it.name })
-                    session.moderator?.let { add("Moderação: $it") }
-                }.joinToString(" • ")
-
+            // Localização (se não for os Claustros principais)
+            if (!session.venue.contains("Claustros", ignoreCase = true)) {
+                Spacer(modifier = Modifier.height(6.dp))
                 Text(
-                    text = participants,
+                    text = "Local: ${session.venue}",
                     style = MaterialTheme.typography.bodySmall,
                     fontWeight = FontWeight.Medium,
-                    color = MaterialTheme.colorScheme.primary,
-                    maxLines = 1,
-                    overflow = TextOverflow.Ellipsis
+                    color = MaterialTheme.colorScheme.secondary
                 )
             }
         }

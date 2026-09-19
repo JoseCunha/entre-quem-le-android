@@ -16,22 +16,31 @@ data class ProgramDataDto(
 
 @Serializable
 data class EventDto(
+    val edition: String? = null,
     val title: String,
     val subtitle: String,
+    val motto: String? = null,
     val dates: DatesDto? = null,
     val location: LocationDto? = null,
+    @SerialName("registration_email") val registrationEmail: String? = null,
+    val cost: String? = null,
     val organizer: String = "",
     val partners: List<String> = emptyList()
 ) {
     fun toFestivalInfo(): FestivalInfo = FestivalInfo(
+        edition = edition ?: "3.ª Edição",
         title = title,
         subtitle = subtitle,
+        motto = motto ?: "Um encontro sem fronteiras",
         startDate = dates?.start ?: "2026-09-18",
         endDate = dates?.end ?: "2026-09-26",
         venueName = location?.name ?: "Claustros do Palácio do Conde de Amarante (antigo Governo Civil)",
+        address = location?.address ?: "Avenida Carvalho Araújo / Rua Dr. Cândido Sotto Mayor",
         city = location?.city ?: "Vila Real",
         latitude = location?.coordinates?.latitude ?: 41.2965,
         longitude = location?.coordinates?.longitude ?: -7.7445,
+        registrationEmail = registrationEmail ?: "entrequemle@cm-vilareal.pt",
+        costNotice = cost ?: "Todos os eventos são de participação gratuita",
         organizer = organizer,
         partners = partners
     )
@@ -47,6 +56,8 @@ data class DatesDto(
 data class LocationDto(
     val name: String,
     val city: String,
+    val address: String? = null,
+    val region: String? = null,
     val country: String? = null,
     val coordinates: CoordinatesDto? = null
 )
@@ -62,7 +73,8 @@ data class CategoryDto(
     val id: String,
     val name: String,
     val icon: String? = null,
-    val color: String? = null
+    val color: String? = null,
+    val textColor: String? = null
 )
 
 @Serializable
@@ -85,8 +97,10 @@ data class SessionDto(
     val time: String,
     val title: String,
     @SerialName("category_id") val categoryId: String,
-    val promoter: String = "",
-    @SerialName("target_audience") val targetAudience: String = "Geral",
+    val venue: String = "Claustros do Palácio do Conde de Amarante",
+    @SerialName("requires_registration") val requiresRegistration: Boolean = false,
+    val promoter: String = "Município de Vila Real",
+    @SerialName("target_audience") val targetAudience: String? = null,
     val description: String = "",
     val moderator: String? = null,
     val curator: String? = null,
@@ -98,6 +112,8 @@ data class SessionDto(
         time = time,
         title = title,
         category = EventCategory.fromId(categoryId),
+        venue = venue,
+        requiresRegistration = requiresRegistration,
         promoter = promoter,
         targetAudience = targetAudience,
         description = description,
