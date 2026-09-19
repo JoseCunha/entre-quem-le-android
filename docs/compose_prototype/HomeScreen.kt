@@ -1,9 +1,9 @@
 package pt.cmvilareal.entrequemle.ui.screens
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.material.icons.Icons
@@ -13,16 +13,18 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import pt.cmvilareal.entrequemle.model.EventCategory
 import pt.cmvilareal.entrequemle.model.Screen
 import pt.cmvilareal.entrequemle.model.Session
 import pt.cmvilareal.entrequemle.ui.components.SessionCard
 
 /**
- * Ecrã Principal da Aplicação "Entre Quem Lê" - Feira do Livro de Vila Real.
+ * Ecrã Principal da Aplicação "Entre Quem Lê" - 3.ª Edição (18 a 26 Setembro 2026).
+ * Look & Feel oficial com cabeçalho em Azul Noturno e destaques em Amarelo Limão.
  */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -46,7 +48,7 @@ fun HomeScreen(
         "2026-09-26" to "Sáb, 26"
     )
 
-    var selectedDate by remember { mutableStateOf("2026-09-19") } // Dia corrente / destaque inicial
+    var selectedDate by remember { mutableStateOf("2026-09-19") } // Destaque: Rui Zink, Luís Moreira Gonçalves, etc.
     var selectedCategory by remember { mutableStateOf<String?>("todos") }
 
     val filteredSessions = remember(sessions, selectedDate, selectedCategory) {
@@ -62,26 +64,45 @@ fun HomeScreen(
             TopAppBar(
                 title = {
                     Column {
+                        Row(verticalAlignment = Alignment.CenterVertically) {
+                            Text(
+                                text = "ENTRE QUEM LÊ",
+                                style = MaterialTheme.typography.titleLarge,
+                                fontWeight = FontWeight.Black,
+                                color = Color(0xFFE4EF00), // Amarelo Limão vibrante da capa
+                                letterSpacing = 1.sp
+                            )
+                            Spacer(modifier = Modifier.width(8.dp))
+                            Surface(
+                                shape = MaterialTheme.shapes.extraSmall,
+                                color = Color(0xFF1D5FA7)
+                            ) {
+                                Text(
+                                    text = "3.ª EDIÇÃO",
+                                    style = MaterialTheme.typography.labelSmall,
+                                    fontWeight = FontWeight.Bold,
+                                    color = Color.White,
+                                    modifier = Modifier.padding(horizontal = 4.dp, vertical = 2.dp)
+                                )
+                            }
+                        }
                         Text(
-                            text = "Entre Quem Lê",
-                            style = MaterialTheme.typography.titleLarge,
-                            fontWeight = FontWeight.Bold
-                        )
-                        Text(
-                            text = "Feira do Livro de Vila Real",
-                            style = MaterialTheme.typography.labelSmall,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant
+                            text = "Feira do Livro de Vila Real • Claustros do Palácio",
+                            style = MaterialTheme.typography.bodySmall,
+                            color = Color.White.copy(alpha = 0.85f)
                         )
                     }
                 },
                 colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = MaterialTheme.colorScheme.surface
+                    containerColor = Color(0xFF0D2E50), // Azul Noturno Oficial
+                    titleContentColor = Color.White,
+                    actionIconContentColor = Color.White
                 ),
                 actions = {
                     IconButton(onClick = { onNavigate(Screen.Info) }) {
                         Icon(
                             imageVector = Icons.Outlined.Info,
-                            contentDescription = "Informações sobre a Feira do Livro e Localização"
+                            contentDescription = "Informações sobre a Feira e Palácio do Conde de Amarante"
                         )
                     }
                 }
@@ -89,32 +110,32 @@ fun HomeScreen(
         },
         bottomBar = {
             NavigationBar(
-                containerColor = MaterialTheme.colorScheme.surface
+                containerColor = Color(0xFF0D2E50),
+                contentColor = Color.White
             ) {
-                NavigationBarItem(
-                    selected = currentScreen == Screen.Home,
-                    onClick = { onNavigate(Screen.Home) },
-                    icon = { Icon(Icons.Default.Today, contentDescription = null) },
-                    label = { Text("Hoje") }
+                val navItems = listOf(
+                    Triple(Screen.Home, "Hoje", Icons.Default.Today),
+                    Triple(Screen.Schedule, "Programa", Icons.Default.Event),
+                    Triple(Screen.Authors, "Autores", Icons.Default.People),
+                    Triple(Screen.Bookmarks, "Agenda", Icons.Default.Bookmark),
+                    Triple(Screen.Info, "Info", Icons.Default.Info)
                 )
-                NavigationBarItem(
-                    selected = currentScreen == Screen.Schedule,
-                    onClick = { onNavigate(Screen.Schedule) },
-                    icon = { Icon(Icons.Default.Event, contentDescription = null) },
-                    label = { Text("Programa") }
-                )
-                NavigationBarItem(
-                    selected = currentScreen == Screen.Authors,
-                    onClick = { onNavigate(Screen.Authors) },
-                    icon = { Icon(Icons.Default.People, contentDescription = null) },
-                    label = { Text("Autores") }
-                )
-                NavigationBarItem(
-                    selected = currentScreen == Screen.Bookmarks,
-                    onClick = { onNavigate(Screen.Bookmarks) },
-                    icon = { Icon(Icons.Default.Bookmark, contentDescription = null) },
-                    label = { Text("Agenda") }
-                )
+
+                navItems.forEach { (screen, label, icon) ->
+                    NavigationBarItem(
+                        selected = currentScreen == screen,
+                        onClick = { onNavigate(screen) },
+                        icon = { Icon(icon, contentDescription = null) },
+                        label = { Text(label) },
+                        colors = NavigationBarItemDefaults.colors(
+                            selectedIconColor = Color(0xFF0D2E50),
+                            selectedTextColor = Color(0xFFE4EF00),
+                            indicatorColor = Color(0xFFE4EF00),
+                            unselectedIconColor = Color.White.copy(alpha = 0.7f),
+                            unselectedTextColor = Color.White.copy(alpha = 0.7f)
+                        )
+                    )
+                }
             }
         }
     ) { innerPadding ->
@@ -122,12 +143,28 @@ fun HomeScreen(
             modifier = Modifier
                 .padding(innerPadding)
                 .fillMaxSize()
+                .background(MaterialTheme.colorScheme.background)
         ) {
-            // Seletor Horizontal de Dias da Feira (9 dias)
+            // Faixa de Aviso de Participação Gratuita (Brochura p. 2)
+            Surface(
+                color = Color(0xFF1D5FA7),
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Text(
+                    text = "TODOS OS EVENTOS SÃO DE PARTICIPAÇÃO GRATUITA",
+                    style = MaterialTheme.typography.labelSmall,
+                    fontWeight = FontWeight.Bold,
+                    color = Color.White,
+                    modifier = Modifier.padding(horizontal = 16.dp, vertical = 6.dp)
+                )
+            }
+
+            // Seletor Horizontal de 9 Dias (18 a 26 de Setembro de 2026)
             ScrollableTabRow(
                 selectedTabIndex = festivalDays.indexOfFirst { it.first == selectedDate }.coerceAtLeast(0),
                 edgePadding = 16.dp,
                 containerColor = MaterialTheme.colorScheme.surface,
+                contentColor = MaterialTheme.colorScheme.primary,
                 divider = {}
             ) {
                 festivalDays.forEach { (dateKey, label) ->
@@ -138,7 +175,8 @@ fun HomeScreen(
                             Text(
                                 text = label,
                                 style = MaterialTheme.typography.titleMedium,
-                                fontWeight = if (selectedDate == dateKey) FontWeight.Bold else FontWeight.Normal
+                                fontWeight = if (selectedDate == dateKey) FontWeight.Bold else FontWeight.Normal,
+                                color = if (selectedDate == dateKey) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurfaceVariant
                             )
                         }
                     )
@@ -147,7 +185,7 @@ fun HomeScreen(
 
             Spacer(modifier = Modifier.height(8.dp))
 
-            // Chips de Filtro por Categoria Temática
+            // Barra de Chips de Categorias Oficiais da Brochura
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -158,20 +196,24 @@ fun HomeScreen(
                 FilterChip(
                     selected = selectedCategory == "todos",
                     onClick = { selectedCategory = "todos" },
-                    label = { Text("Todos") }
+                    label = { Text("Todos (${sessions.count { it.date == selectedDate }})") }
                 )
+
                 EventCategory.entries.forEach { cat ->
-                    FilterChip(
-                        selected = selectedCategory == cat.id,
-                        onClick = { selectedCategory = cat.id },
-                        label = { Text(cat.label) }
-                    )
+                    val count = sessions.count { it.date == selectedDate && it.category == cat }
+                    if (count > 0 || selectedCategory == cat.id) {
+                        FilterChip(
+                            selected = selectedCategory == cat.id,
+                            onClick = { selectedCategory = cat.id },
+                            label = { Text("${cat.label} ($count)") }
+                        )
+                    }
                 }
             }
 
             Spacer(modifier = Modifier.height(12.dp))
 
-            // Lista de Sessões
+            // Lista de Sessões Filtradas
             if (filteredSessions.isEmpty()) {
                 Box(
                     modifier = Modifier
@@ -180,7 +222,7 @@ fun HomeScreen(
                     contentAlignment = Alignment.Center
                 ) {
                     Text(
-                        text = "Sem sessões agendadas para os filtros selecionados.",
+                        text = "Sem atividades agendadas para os filtros selecionados.",
                         style = MaterialTheme.typography.bodyLarge,
                         color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
