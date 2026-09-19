@@ -35,18 +35,18 @@ fun HomeScreen(
     onNavigate: (Screen) -> Unit = {}
 ) {
     val festivalDays = listOf(
-        "2024-09-20" to "Sex, 20",
-        "2024-09-21" to "Sáb, 21",
-        "2024-09-22" to "Dom, 22",
-        "2024-09-23" to "Seg, 23",
-        "2024-09-24" to "Ter, 24",
-        "2024-09-25" to "Qua, 25",
-        "2024-09-26" to "Qui, 26",
-        "2024-09-27" to "Sex, 27",
-        "2024-09-28" to "Sáb, 28"
+        "2026-09-18" to "Sex, 18",
+        "2026-09-19" to "Sáb, 19",
+        "2026-09-20" to "Dom, 20",
+        "2026-09-21" to "Seg, 21",
+        "2026-09-22" to "Ter, 22",
+        "2026-09-23" to "Qua, 23",
+        "2026-09-24" to "Qui, 24",
+        "2026-09-25" to "Sex, 25",
+        "2026-09-26" to "Sáb, 26"
     )
 
-    var selectedDate by remember { mutableStateOf("2024-09-21") } // Dia demonstrativo de destaque
+    var selectedDate by remember { mutableStateOf("2026-09-19") } // Dia corrente / destaque inicial
     var selectedCategory by remember { mutableStateOf<String?>("todos") }
 
     val filteredSessions = remember(sessions, selectedDate, selectedCategory) {

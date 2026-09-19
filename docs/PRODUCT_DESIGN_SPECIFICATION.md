@@ -1,7 +1,7 @@
 # Especificação de Design de Produto de Software: Aplicação Android "Entre Quem Lê"
 
-**Evento:** Feira do Livro de Vila Real 2024 (20 a 28 de Setembro de 2024)  
-**Organização:** Município de Vila Real (com parcerias de FNAC e Cultura a Dentro)  
+**Evento:** Feira do Livro de Vila Real 2026 (18 a 26 de Setembro de 2026) — 3.ª Edição  
+**Organização:** Município de Vila Real (com parcerias do Teatro de Vila Real, Projeto Nortear e Granada UNESCO)  
 **Perfil Responsável:** Engenheiro de Design de Produto de Software  
 **Referenciais:** ISO 9241-210:2019 (Human-Centred Design), WCAG 2.2 (Níveis AA e AAA), Material Design 3 (M3)  
 **Destinatário:** Engenheiro de Software e Equipa de Engenharia Android / SSDLC  
@@ -11,7 +11,7 @@
 ## 1. Enquadramento e Estratégia de Produto
 
 ### 1.1 Missão e Outcome
-A aplicação móvel nativa Android **"Entre Quem Lê"** tem como missão guiar, informar e enriquecer a experiência dos visitantes da Feira do Livro de Vila Real. O produto foi desenhado para eliminar a fricção da consulta em suportes estáticos ou panfletos de papel, oferecendo uma navegação ágil, contextualizada ("o que está a decorrer agora"), inclusiva e disponível **100% offline** no recinto da feira (Jardim da Carreira / Centro de Vila Real).
+A aplicação móvel nativa Android **"Entre Quem Lê"** tem como missão guiar, informar e enriquecer a experiência dos visitantes da Feira do Livro de Vila Real. O produto foi desenhado para eliminar a fricção da consulta em suportes estáticos ou panfletos de papel, oferecendo uma navegação ágil, contextualizada ("o que está a decorrer agora"), inclusiva e disponível **100% offline** no recinto da feira (Claustros do Palácio do Conde de Amarante / Vila Real).
 
 ### 1.2 Avaliação dos Quatro Riscos Fundamentais (Dual-Track / Marty Cagan)
 1. **Risco de Valor (Value Risk):**
@@ -51,8 +51,8 @@ Como exigido pelo processo de engenharia de design (ISO 9241-210), foram explora
 | Abordagem | Descrição | Avaliação Técnica & Usabilidade | Veredito |
 | :--- | :--- | :--- | :--- |
 | **Alternativa A: Visualizador Interativo de Cartaz / PDF** | Apresentação do poster oficial em ecrã inteiro com pan-and-zoom e zonas clicáveis. | **Falha Crítica de Acessibilidade:** Impossibilita leitura por leitores de ecrã (TalkBack); péssima ergonomia em ecrãs móveis verticais; sem busca, filtros ou lembretes. | **REJEITADA** |
-| **Alternativa B: Feed Cronológico Linear Contínuo** | Lista vertical única contendo todas as 27 sessões dos 9 dias consecutivamente. | **Sobrecarga Cognitiva:** Obriga o utilizador no terreno a um scroll exaustivo para encontrar o dia corrente; desorientação temporal em eventos com múltiplos dias. | **REJEITADA** |
-| **Alternativa C: Hub Modular com Abas Diárias + Filtros Rápidos (M3)** | Barra de abas superior com os 9 dias (Sex 20 a Sáb 28), chips de categorias temáticas, cartões semânticos e Bottom Navigation. | **Acessível, Eficaz e Intuitiva:** 1 toque para mudar de dia; 1 toque para filtrar categorias; alvos táteis >48dp; semântica TalkBack completa e offline instantâneo. | **ADOTADA** |
+| **Alternativa B: Feed Cronológico Linear Contínuo** | Lista vertical única contendo todas as 30 sessões dos 9 dias consecutivamente. | **Sobrecarga Cognitiva:** Obriga o utilizador no terreno a um scroll exaustivo para encontrar o dia corrente; desorientação temporal em eventos com múltiplos dias. | **REJEITADA** |
+| **Alternativa C: Hub Modular com Abas Diárias + Filtros Rápidos (M3)** | Barra de abas superior com os 9 dias (Sex 18 a Sáb 26), chips de categorias temáticas, cartões semânticos e Bottom Navigation. | **Acessível, Eficaz e Intuitiva:** 1 toque para mudar de dia; 1 toque para filtrar categorias; alvos táteis >48dp; semântica TalkBack completa e offline instantâneo. | **ADOTADA** |
 
 ---
 
