@@ -8,14 +8,14 @@ plugins {
 
 android {
     namespace = "pt.cmvilareal.entrequemle"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "pt.cmvilareal.entrequemle"
         minSdk = 26
-        targetSdk = 35
-        versionCode = 1
-        versionName = "1.0.0"
+        targetSdk = 36
+        versionCode = 2
+        versionName = "1.0.1"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
